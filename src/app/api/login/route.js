@@ -17,7 +17,7 @@ client.connect();
 export async function POST(request) {
   try {
     const { username, password } = await request.json();
-    const res = await client.query('SELECT * FROM tbl_users WHERE username = $1', [username]);
+    const res = await client.query('SELECT * FROM tbl_users WHERE username = $1', [username] );
 
     if (res.rows.length === 0) {
       return new Response(JSON.stringify({ error: 'User not found' }), {
