@@ -1,6 +1,5 @@
 // pages/api/login.js
 
-import { NextResponse } from "next/server";
 import { Client } from "pg";
 import dotenv from "dotenv";
 import bcrypt from 'bcrypt';
@@ -15,11 +14,15 @@ const client = new Client({
 client.connect();
 
 export default async function handler(req, res) {
+  console.log('Handler invoked');
+  
   if (req.method !== 'POST') {
+    console.log('Method not allowed');
     return res.status(405).json({ error: 'Method Not Allowed' });
   }
 
   try {
+    console.log('POST request received');
     const { username, password } = req.body;
 
     const dbRes = await client.query('SELECT * FROM tbl_users WHERE username = $1', [username]);
