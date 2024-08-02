@@ -32,7 +32,7 @@ export async function POST(request) {
     console.log(match);
 
     if (match != true) {
-      return new Response(JSON.stringify({ error: 'Invalid password' }), {
+      return new Response(JSON.stringify({ error: 'Invalid password'}), {
         status: 401,
         headers: { 'Content-Type': 'application/json' },
       });
