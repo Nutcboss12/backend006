@@ -13,7 +13,7 @@ const client = new Client({
 });
 
 client.connect().catch(err => {
-  console.error('Database connection error:', err);
+  console.error('Database connection error:', err );
 });
 
 export async function POST(request) {
